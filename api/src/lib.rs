@@ -15,34 +15,38 @@ mod tests {
     }
 }
 pub struct Timekeeper{
-    lasttime: i32,
+    lasttime: DateTime<Local>,
     currenttime: DateTime<Local>
 }
 impl Timekeeper{
     pub fn new() -> Timekeeper{
-        Timekeeper{currenttime: Utc::now()}
+        Timekeeper{
+            lasttime: Local::now(),
+            currenttime: Local::now()
+        }
     }
     pub fn getHour(&self) -> u32{
-        self.currenttime.year()      
+        return self.currenttime.hour(); 
     }
-    pub fn getWeek(&self) -> u32{
-        self.currenttime.weekday()
+    pub fn getWeek(&self) -> chrono::Weekday{
+        return self.currenttime.weekday();
     }
     pub fn getMinute(&self) -> u32{
-        self.currenttime.minute()
+        return self.currenttime.minute();
     }
     pub fn getSecond(&self) -> u32{
-        self.currenttime.second()
+        return self.currenttime.second();
     }
     pub fn update(){}
-    fn setTime(&self){
-        self.currenttime = Utc::now()
+    fn setTime(&mut self){
+        self.lasttime = self.currenttime;
+        self.currenttime = Local::now();
     }
     fn CheckAlerm(){}
     fn CheckTimer(){}
 }
 
-impl Alert{
-    pub fn check(&self) -> bool{}
-    pub fn alert(&self){}
+pub trait Alert{
+    fn check(&self) -> bool;
+    fn alert(&self);
 }
