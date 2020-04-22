@@ -1,8 +1,8 @@
-pub struct Timer{
-
+pub struct PresetTimer{
+  second: i32,
+  name: String,
 }
-impl Timer{
-    pub fn new() -> Self {
-        unimplemented!();
-    }
+impl PresetTimer{
+  pub fn SetTimer(&self){
+  }
 }
