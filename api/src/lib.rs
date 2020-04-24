@@ -1,6 +1,8 @@
 extern crate chrono;
 use chrono::{TimeZone, Weekday,ParseResult};
 use chrono::prelude::{DateTime, Utc, Local, Datelike, Timelike};
+mod alert;
+mod timekeeper;
 mod alarm;
 mod timer;
 
@@ -13,8 +15,4 @@ mod tests {
     fn test_now(){
         
     }
-}
-pub trait Alert{
-    fn check(&self) -> bool;
-    fn alert(&self);
 }

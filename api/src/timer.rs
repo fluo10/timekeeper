@@ -1,5 +1,5 @@
 //use lib::Alert;
-use trait::Alert;
+use crate::alert::Alert;
 pub struct PresetTimer{
   second: i32,
   name: String,

@@ -1,5 +1,5 @@
 [package]
-name = "timekeeper-api"
+name = "timekeeper_api"
 version = "0.1.0"
 authors = ["fwtn <fwtn+git@fireturtle.net>"]
 edition = "2018"

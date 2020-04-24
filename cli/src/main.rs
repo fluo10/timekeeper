@@ -1,3 +1,12 @@
-fn main() {
-    println!("Hello, world!");
+extern crate timekeeper_api;
+use quicli::prelude::*;
+use structopt::StructOpt;
+
+fn main() -> CliResult {
+    let args = Cli::from_args();
+    read_file(&args.file)?
+        .lines()
+        .take(args.num)
+        .for_each(|line| println!("{}", line));
+    Ok(())
 }
